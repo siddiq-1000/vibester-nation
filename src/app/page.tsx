@@ -43,7 +43,7 @@ function InnerHome() {
           style={{ opacity: crowdOpacity }}
           className="absolute inset-0 z-10"
         >
-          <Image src="/crowd.jpg" alt="Vibester Nation Crowd" fill className="object-cover" priority />
+          <Image src="/cowrd.png" alt="Vibester Nation Crowd" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-[#020202]/50 to-[#020202] z-10" />
         </motion.div>
       </div>
