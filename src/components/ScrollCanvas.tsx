@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import { useScroll, useTransform, useMotionValueEvent, useSpring, MotionValue } from "framer-motion";
+import { useScroll, useTransform, useMotionValueEvent, useSpring, MotionValue, motion } from "framer-motion";
 
 export default function ScrollCanvas({
     onLoadProgress,
@@ -86,22 +86,15 @@ export default function ScrollCanvas({
 
         // Only draw if image is complete
         if (img && img.complete && img.naturalHeight !== 0) {
-            const canvasAspectRatio = canvas.width / canvas.height;
-            const imgAspectRatio = img.width / img.height;
+            // Force 1:1 scale centering, no zoom or pan
+            const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
 
-            let renderableWidth, renderableHeight, xStart, yStart;
+            const renderableWidth = img.width * scale;
+            const renderableHeight = img.height * scale;
 
-            if (imgAspectRatio < canvasAspectRatio) {
-                renderableWidth = canvas.width;
-                renderableHeight = img.height * (canvas.width / img.width);
-                xStart = 0;
-                yStart = (canvas.height - renderableHeight) / 2;
-            } else {
-                renderableHeight = canvas.height;
-                renderableWidth = img.width * (canvas.height / img.height);
-                yStart = 0;
-                xStart = (canvas.width - renderableWidth) / 2;
-            }
+            // Absolute dead-center formulas
+            const xStart = (canvas.width - renderableWidth) / 2;
+            const yStart = (canvas.height - renderableHeight) / 2;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, xStart, yStart, renderableWidth, renderableHeight);
@@ -133,7 +126,6 @@ export default function ScrollCanvas({
         <canvas
             ref={canvasRef}
             className="w-full h-full object-cover mix-blend-screen opacity-90"
-            style={{ width: "100%", height: "100%" }}
         />
     );
 }

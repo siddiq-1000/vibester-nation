@@ -7,9 +7,9 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
     const { scrollYProgress: defaultScrollY } = useScroll();
     const progress = scrollYProgress || defaultScrollY;
 
-    // Beat A: Logo Fade
-    const opacityA = useTransform(progress, [0, 0.05, 0.1, 1], [1, 1, 0, 0]);
-    const yA = useTransform(progress, [0, 0.1], [0, -50]);
+    // Beat A: Logo Fade - disappears quickly to prevent DJ gear overlap
+    const opacityA = useTransform(progress, [0, 0.01, 0.05, 1], [1, 1, 0, 0]);
+    const yA = useTransform(progress, [0, 0.05], [0, -50]);
 
     // Beat B: 25-45%
     const opacityB = useTransform(progress, [0.2, 0.25, 0.4, 0.45], [0, 1, 1, 0]);
@@ -32,9 +32,9 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
             {/* Beat A: THE SILENCE */}
             <motion.div
                 style={{ opacity: opacityA, y: yA }}
-                className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+                className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-[#020202]"
             >
-                <div className="w-[90vw] md:w-[80vw] max-w-[1200px] aspect-[3/1] relative mb-8 drop-shadow-2xl">
+                <div className="w-[80vw] md:w-[60vw] max-w-[1000px] aspect-[2/1] relative mb-8 drop-shadow-2xl">
                     <Image src="/logo.png" alt="Vibester Nation Logo" fill className="object-contain" priority />
                 </div>
             </motion.div>
@@ -45,7 +45,7 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                 className="absolute inset-0 flex flex-col justify-center px-8 md:px-24"
             >
                 <div className="max-w-2xl text-left">
-                    <h2 className="text-5xl md:text-7xl font-bold mb-4 font-heading text-transparent bg-clip-text bg-gradient-to-b from-[#00f2ff] via-[#d100ff] to-[#ff00a0] uppercase tracking-tight">
+                    <h2 className="text-5xl md:text-7xl font-bold mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
                         Global Sound Fusion
                     </h2>
                     <p className="text-lg md:text-xl text-gray-300 font-sans tracking-wide leading-relaxed">
@@ -60,7 +60,7 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                 className="absolute inset-0 flex flex-col justify-center items-end px-8 md:px-24 text-right"
             >
                 <div className="max-w-2xl">
-                    <h2 className="text-5xl md:text-7xl font-bold mb-4 font-heading text-transparent bg-clip-text bg-gradient-to-b from-[#00f2ff] via-[#d100ff] to-[#ff00a0] uppercase tracking-tight">
+                    <h2 className="text-5xl md:text-7xl font-bold mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
                         Uniting Cultures
                     </h2>
                     <p className="text-lg md:text-xl text-gray-300 font-sans tracking-wide leading-relaxed mb-4">
@@ -82,7 +82,7 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                 className="absolute inset-0 flex flex-col justify-center px-8 md:px-24"
             >
                 <div className="max-w-2xl text-left">
-                    <h2 className="text-5xl md:text-7xl font-bold mb-4 font-heading text-transparent bg-clip-text bg-gradient-to-b from-[#00f2ff] via-[#d100ff] to-[#ff00a0] uppercase tracking-tight">
+                    <h2 className="text-5xl md:text-7xl font-bold mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
                         Igniting Crowds
                     </h2>
                     <p className="text-lg md:text-xl text-gray-300 font-sans tracking-wide leading-relaxed">
@@ -97,13 +97,13 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                 className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
             >
                 <blockquote className="max-w-4xl">
-                    <p className="text-3xl md:text-5xl italic font-heading font-light leading-snug mb-8 text-white">
-                        "More than just music—it's an unforgettable cultural fusion and high-energy connection."
+                    <p className="text-3xl md:text-5xl italic font-heading font-light leading-snug px-4 text-white">
+                        "More than just music, It's an unforgettable CulTural FuSion and give High Energy Connection."
                     </p>
-                    <footer className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#d100ff] font-bold tracking-widest uppercase">
-                        — The Core Philosophy
-                    </footer>
                 </blockquote>
+                <p className="text-3xl md:text-5xl italic font-heading font-light leading-snug px-4 text-white">
+                    LET'S GOO!!!!
+                </p>
             </motion.div>
         </div>
     );

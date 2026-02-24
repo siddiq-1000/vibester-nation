@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ScrollCanvas from "@/components/ScrollCanvas";
 import ContentOverlay from "@/components/ContentOverlay";
+import { CometCard } from "@/components/ui/comet-card";
 import { Instagram, Phone, Disc, GlassWater, Briefcase, Heart } from "lucide-react";
 import Image from "next/image";
 
@@ -61,7 +62,7 @@ function InnerHome() {
         {/* FINAL CTA DASHBOARD */}
         <footer className="relative z-20 flex flex-col items-center justify-center bg-transparent py-32 border-t border-white/5">
           <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4">
-            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-transparent bg-clip-text bg-gradient-to-b from-[#00f2ff] via-[#d100ff] to-[#ff00a0] text-center">
+            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-white text-center drop-shadow-md">
               Book Vibester Nation
             </h2>
 
@@ -84,44 +85,34 @@ function InnerHome() {
 
 function ServicesSection() {
   const services = [
-    { title: "Live DJ Performances", desc: "Tailored sets ranging from warm-up grooves to peak-hour drops.", icon: Disc },
-    { title: "Club & Nightlife", desc: "Resident and guest DJ services for clubs, lounges, and private nightlife venues.", icon: GlassWater },
-    { title: "Corporate & College", desc: "High-energy sets for brand events, conferences, and college festivals.", icon: Briefcase },
-    { title: "Weddings & Celebrations", desc: "Customized, seamless and memorable playlists for your special day.", icon: Heart },
+    { title: "Celebration", icon: Heart },
+    { title: "Weddings", icon: Heart },
+    { title: "Corporate", icon: Briefcase },
+    { title: "College & School", icon: Disc },
+    { title: "Club & Night Life", icon: GlassWater },
+    { title: "Live DJ Performance", icon: Disc },
   ];
 
   return (
-    <section className="relative z-20 bg-transparent py-24 md:py-32 px-4 border-t border-white/5">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-5xl md:text-7xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#00f2ff] via-[#d100ff] to-[#ff00a0] uppercase tracking-tight mb-16 text-center">
-          Services Offered
+    <section className="relative z-20 bg-transparent py-24 md:py-32 px-4 border-t border-white/5 overflow-hidden">
+      <div className="max-w-5xl mx-auto flex flex-col items-center">
+        <h2 className="text-4xl md:text-7xl font-heading font-bold text-white uppercase tracking-tight mb-16 text-center drop-shadow-md">
+          Signature Experiences
         </h2>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
           {services.map((svc, i) => (
-            <div
+            <button
               key={i}
-              className="flex flex-col md:flex-row items-start md:items-center justify-between p-6 md:p-8 hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-300 group cursor-pointer rounded-xl"
+              className="w-full md:w-auto flex items-center justify-center md:justify-start gap-4 px-6 py-4 md:px-10 md:py-6 bg-white/5 hover:bg-gradient-to-r hover:from-[#00f2ff]/20 hover:to-[#d100ff]/20 border border-white/10 hover:border-[#d100ff]/50 rounded-full transition-all duration-300 group shadow-lg hover:shadow-[0_0_30px_rgba(209,0,255,0.3)] hover:-translate-y-1"
             >
-              <div className="flex items-start md:items-center mb-4 md:mb-0 max-w-2xl gap-6">
-                <div className="p-4 rounded-full bg-white/5 text-[#00f2ff] group-hover:text-[#d100ff] transition-colors duration-300">
-                  <svc.icon size={32} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl md:text-4xl font-heading font-extrabold text-white tracking-widest uppercase mb-2">
-                    {svc.title}
-                  </span>
-                  <span className="text-xl text-gray-400 font-sans tracking-wide leading-relaxed">
-                    {svc.desc}
-                  </span>
-                </div>
+              <div className="text-[#00f2ff] group-hover:text-white transition-colors duration-300 flex-shrink-0">
+                <svc.icon size={24} className="md:w-7 md:h-7" />
               </div>
-              <div className="flex items-center justify-start w-full md:w-auto mt-4 md:mt-0 pl-20 md:pl-0">
-                <button className="text-[#d100ff] uppercase tracking-widest font-bold text-sm border-b border-[#d100ff] pb-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Inquire Now
-                </button>
-              </div>
-            </div>
+              <span className="text-base md:text-xl font-heading font-bold text-white tracking-widest uppercase whitespace-nowrap transition-colors">
+                {svc.title}
+              </span>
+            </button>
           ))}
         </div>
       </div>
@@ -145,43 +136,59 @@ function EventPicsSection() {
   return (
     <section className="relative z-20 bg-transparent py-24 md:py-32 border-t border-white/5 overflow-hidden flex flex-col items-center">
       <div className="flex flex-col items-center mb-16 px-4">
-        <h2 className="text-5xl md:text-7xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#00f2ff] via-[#d100ff] to-[#ff00a0] uppercase tracking-tight text-center mb-4">
+        <h2 className="text-4xl md:text-7xl font-heading font-bold text-white uppercase tracking-tight text-center mb-4 drop-shadow-md">
           Event Pics
         </h2>
         <p className="text-gray-400 font-sans tracking-widest text-sm uppercase text-center max-w-xl">
-          Captured moments of pure <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#d100ff] font-bold">energy and connection</span>. The vibe lives on.
+          Captured moments of pure <span className="text-white font-bold drop-shadow-md">energy and connection</span>. The vibe lives on.
         </p>
       </div>
 
       {/* Marquee Container */}
-      <div className="w-full relative py-8 group/marquee">
-        <div className="flex w-[200%] md:w-[150%] animate-marquee hover:[animation-play-state:paused] ease-linear">
+      <div className="w-full relative py-8 group/marquee overflow-hidden">
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused] ease-linear">
           {duplicatedPics.map((pic, i) => (
-            <div
-              key={i}
-              className="relative w-[300px] h-[400px] md:w-[400px] md:h-[500px] shrink-0 mx-4 rounded-xl overflow-hidden bg-gray-900 border border-white/5 group object-cover"
-            >
-              {pic.img ? (
-                <Image
-                  src={pic.img}
-                  alt={pic.alt}
-                  fill
-                  sizes="(max-width: 768px) 300px, 400px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-600 p-6 text-center border-2 border-dashed border-gray-800 rounded-xl m-2">
-                  <span className="text-sm font-sans tracking-widest uppercase mb-2 text-gray-500">
-                    Image Placeholder
-                  </span>
-                  <span className="text-xs font-sans opacity-40">
-                    {pic.alt}
-                  </span>
+            <CometCard key={i} className="shrink-0 mx-2 md:mx-4">
+              <button
+                type="button"
+                className="my-5 flex w-[300px] md:w-[400px] cursor-pointer flex-col items-stretch rounded-[16px] border border-white/5 bg-[#1F2121]/80 backdrop-blur-md p-2 saturate-0 hover:saturate-100 hover:border-white/20 transition-all duration-300 md:my-8 md:p-4 group/btn"
+                aria-label={`View moment ${i}`}
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: "none",
+                  opacity: 1,
+                }}
+              >
+                <div className="mx-2 flex-1 relative" style={{ transformStyle: "preserve-3d", transform: "translateZ(20px)" }}>
+                  <div className="relative mt-2 aspect-[3/4] w-full shadow-2xl">
+                    {pic.img ? (
+                      <Image
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full rounded-[16px] bg-[#000000] object-cover contrast-75 group-hover/btn:contrast-100 transition-all duration-500"
+                        alt={pic.alt}
+                        src={pic.img}
+                        fill
+                        sizes="(max-width: 768px) 300px, 400px"
+                        style={{
+                          boxShadow: "rgba(0, 0, 0, 0.5) 0px 10px 20px 0px",
+                          opacity: 1,
+                        }}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-600 p-6 text-center border-2 border-dashed border-gray-800 rounded-[16px] m-2">
+                        <span className="text-sm font-sans tracking-widest uppercase mb-2 text-gray-500">Image Placeholder</span>
+                      </div>
+                    )}
+                    {/* Subtle Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-80 group-hover/btn:opacity-40 transition-opacity duration-500 rounded-[16px]" />
+                  </div>
                 </div>
-              )}
-              {/* Subtle Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
-            </div>
+                <div className="mt-4 flex flex-shrink-0 items-center justify-between p-2 md:p-4 text-white" style={{ transformStyle: "preserve-3d", transform: "translateZ(30px)" }}>
+                  <div className="text-xs font-sans tracking-widest uppercase font-bold drop-shadow-md">Vibester Nation</div>
+                  <div className="text-xs font-sans tracking-widest text-[#00f2ff] opacity-80 uppercase drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">#MOMENTS</div>
+                </div>
+              </button>
+            </CometCard>
           ))}
         </div>
       </div>
