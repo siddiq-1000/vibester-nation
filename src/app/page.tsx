@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import ScrollCanvas from "@/components/ScrollCanvas";
 import ContentOverlay from "@/components/ContentOverlay";
 import { CometCard } from "@/components/ui/comet-card";
+import AnimatedButton from "@/components/ui/animated-button";
 import { Instagram, Phone, Disc, GlassWater, Briefcase, Heart } from "lucide-react";
 import Image from "next/image";
 
@@ -102,17 +103,7 @@ function ServicesSection() {
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
           {services.map((svc, i) => (
-            <button
-              key={i}
-              className="w-full md:w-auto flex items-center justify-center md:justify-start gap-4 px-6 py-4 md:px-10 md:py-6 bg-white/5 hover:bg-gradient-to-r hover:from-[#00f2ff]/20 hover:to-[#d100ff]/20 border border-white/10 hover:border-[#d100ff]/50 rounded-full transition-all duration-300 group shadow-lg hover:shadow-[0_0_30px_rgba(209,0,255,0.3)] hover:-translate-y-1"
-            >
-              <div className="text-[#00f2ff] group-hover:text-white transition-colors duration-300 flex-shrink-0">
-                <svc.icon size={24} className="md:w-7 md:h-7" />
-              </div>
-              <span className="text-base md:text-xl font-heading font-bold text-white tracking-widest uppercase whitespace-nowrap transition-colors">
-                {svc.title}
-              </span>
-            </button>
+            <AnimatedButton key={i} text={svc.title} icon={<svc.icon size={24} />} />
           ))}
         </div>
       </div>
