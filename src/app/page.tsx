@@ -6,8 +6,9 @@ import ScrollCanvas from "@/components/ScrollCanvas";
 import ContentOverlay from "@/components/ContentOverlay";
 import { CometCard } from "@/components/ui/comet-card";
 import AnimatedButton from "@/components/ui/animated-button";
-import { Instagram, Phone, Disc, GlassWater, Briefcase, Heart } from "lucide-react";
+import { Instagram, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   // Prevent browser extensions (e.g. Avast bis_skin_checked) from causing hydration errors
@@ -56,23 +57,23 @@ function InnerHome() {
       </div>
 
       {/* SCROLLING CONTENT - Rolls up over the fixed background sequence */}
-      <div className="relative z-20 bg-transparent md:bg-[#020202]/30 backdrop-blur-2xl shadow-[0_-30px_60px_rgba(0,0,0,0.8)] border-t border-white/5 pt-8">
+      <div className="relative z-20 pt-8">
         <ServicesSection />
         <EventPicsSection />
 
         {/* FINAL CTA DASHBOARD */}
-        <footer className="relative z-20 flex flex-col items-center justify-center bg-transparent py-32 border-t border-white/5">
+        <footer className="relative z-20 flex flex-col items-center justify-center py-32">
           <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4">
-            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-white text-center drop-shadow-md">
+            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-gray-400 text-center drop-shadow-md">
               Book Vibester Nation
             </h2>
 
             <div className="flex flex-col md:flex-row gap-6 mb-16">
-              <a href="tel:+918884487221" className="px-8 py-4 bg-gradient-to-r from-[#00f2ff] to-[#d100ff] text-white font-bold text-lg tracking-widest uppercase hover:opacity-80 transition-opacity duration-300 flex items-center justify-center gap-3">
+              <a href="tel:+918884487221" className="px-8 py-4 bg-gray-700 text-gray-200 font-bold text-lg tracking-widest uppercase hover:bg-gray-600 transition-colors duration-300 flex items-center justify-center gap-3 rounded-full shadow-lg">
                 <Phone size={24} />
                 +91 88844 87221
               </a>
-              <a href="https://instagram.com/vibester_nation" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border-2 border-[#d100ff] text-[#d100ff] font-bold text-lg tracking-widest uppercase hover:bg-[#d100ff] hover:text-white transition-colors duration-300 flex items-center justify-center gap-3">
+              <a href="https://instagram.com/vibester_nation" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border-2 border-gray-500 text-gray-400 font-bold text-lg tracking-widest uppercase hover:bg-gray-800 hover:text-gray-200 transition-colors duration-300 flex items-center justify-center gap-3 rounded-full">
                 <Instagram size={24} />
                 @vibester_nation
               </a>
@@ -85,25 +86,54 @@ function InnerHome() {
 }
 
 function ServicesSection() {
+  const CorporateIcon = ({ size }: { size?: number }) => (
+    <i className="fi fi-rs-building text-white" style={{ fontSize: size }} />
+  );
+
+  const WeddingIcon = ({ size }: { size?: number }) => (
+    <i className="fi fi-bs-ring-diamond text-white" style={{ fontSize: size }} />
+  );
+
+  const CelebrationIcon = ({ size }: { size?: number }) => (
+    <i className="fi fi-br-party-horn text-white" style={{ fontSize: size }} />
+  );
+
+  const CollegeIcon = ({ size }: { size?: number }) => (
+    <i className="fi fi-rr-student text-white" style={{ fontSize: size }} />
+  );
+
+  const ClubIcon = ({ size }: { size?: number }) => (
+    <i className="fi fi-rs-disco-ball text-white" style={{ fontSize: size }} />
+  );
+
+  const LiveDJIcon = ({ size }: { size?: number }) => (
+    <i className="fi fi-br-album text-white" style={{ fontSize: size }} />
+  );
+
   const services = [
-    { title: "Celebration", icon: Heart },
-    { title: "Weddings", icon: Heart },
-    { title: "Corporate", icon: Briefcase },
-    { title: "College & School", icon: Disc },
-    { title: "Club & Night Life", icon: GlassWater },
-    { title: "Live DJ Performance", icon: Disc },
+    { title: "Celebration", icon: CelebrationIcon, href: "/celebration" },
+    { title: "Weddings", icon: WeddingIcon, href: "/wedding" },
+    { title: "Corporate", icon: CorporateIcon, href: "/corporate" },
+    { title: "College & School", icon: CollegeIcon, href: "/college-schools" },
+    { title: "Club & Night Life", icon: ClubIcon, href: "/club-nightlife" },
+    { title: "Live DJ Performance", icon: LiveDJIcon, href: "/live-dj" },
   ];
 
   return (
-    <section className="relative z-20 bg-transparent py-24 md:py-32 px-4 border-t border-white/5 overflow-hidden">
+    <section className="relative z-20 py-24 md:py-32 px-4 overflow-hidden bg-transparent">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
-        <h2 className="text-4xl md:text-7xl font-heading font-bold text-white uppercase tracking-tight mb-16 text-center drop-shadow-md">
-          Signature Experiences
+        <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-16 flex flex-wrap justify-center items-center gap-3 drop-shadow-md">
+          <span className="bg-white text-black px-6 pt-2 pb-1 rounded-full">Signature</span>
+          <span className="text-white">Experiences</span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
           {services.map((svc, i) => (
-            <AnimatedButton key={i} text={svc.title} icon={<svc.icon size={24} />} />
+            <Link href={svc.href} key={i} className="group flex-shrink-0">
+              <div className="transition-transform duration-300 group-hover:animate-hover-x">
+                <AnimatedButton text={svc.title} icon={<svc.icon size={24} />} />
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -125,13 +155,16 @@ function EventPicsSection() {
   const duplicatedPics = [...eventPics, ...eventPics];
 
   return (
-    <section className="relative z-20 bg-transparent py-24 md:py-32 border-t border-white/5 overflow-hidden flex flex-col items-center">
+    <section className="relative z-20 py-24 md:py-32 overflow-hidden flex flex-col items-center">
       <div className="flex flex-col items-center mb-16 px-4">
-        <h2 className="text-4xl md:text-7xl font-heading font-bold text-white uppercase tracking-tight text-center mb-4 drop-shadow-md">
-          Event Pics
+        <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-4 flex flex-wrap justify-center items-center gap-3 drop-shadow-md">
+          <span className="bg-white text-black px-6 pt-2 pb-1 rounded-full">Event</span>
+          <span className="text-white">Pics</span>
         </h2>
-        <p className="text-gray-400 font-sans tracking-widest text-sm uppercase text-center max-w-xl">
-          Captured moments of pure <span className="text-white font-bold drop-shadow-md">energy and connection</span>. The vibe lives on.
+        <p className="text-gray-400 font-sans tracking-widest text-sm uppercase text-center max-w-xl flex flex-wrap justify-center items-center gap-x-2 gap-y-1 mt-2">
+          <span>Captured moments of</span>
+          <span className="bg-white text-black px-3 py-1 rounded-full font-bold">pure energy</span>
+          <span>and connection. The vibe lives on.</span>
         </p>
       </div>
 

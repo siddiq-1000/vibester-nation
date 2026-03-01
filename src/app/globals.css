@@ -79,3 +79,19 @@ h6 {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+@keyframes hover-x {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-hover-x {
+  animation: hover-x 1.5s ease-in-out infinite;
+}
