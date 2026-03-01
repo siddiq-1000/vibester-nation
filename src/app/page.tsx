@@ -6,6 +6,7 @@ import ScrollCanvas from "@/components/ScrollCanvas";
 import ContentOverlay from "@/components/ContentOverlay";
 import { CometCard } from "@/components/ui/comet-card";
 import AnimatedButton from "@/components/ui/animated-button";
+import UiverseButton from "@/components/ui/UiverseButton";
 import { Instagram, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -64,19 +65,23 @@ function InnerHome() {
         {/* FINAL CTA DASHBOARD */}
         <footer className="relative z-20 flex flex-col items-center justify-center py-32">
           <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4">
-            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-gray-400 text-center drop-shadow-md">
+            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-white mix-blend-difference text-center">
               Book Vibester Nation
             </h2>
 
             <div className="flex flex-col md:flex-row gap-6 mb-16">
-              <a href="tel:+918884487221" className="px-8 py-4 bg-gray-700 text-gray-200 font-bold text-lg tracking-widest uppercase hover:bg-gray-600 transition-colors duration-300 flex items-center justify-center gap-3 rounded-full shadow-lg">
-                <Phone size={24} />
-                +91 88844 87221
-              </a>
-              <a href="https://instagram.com/vibester_nation" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border-2 border-gray-500 text-gray-400 font-bold text-lg tracking-widest uppercase hover:bg-gray-800 hover:text-gray-200 transition-colors duration-300 flex items-center justify-center gap-3 rounded-full">
-                <Instagram size={24} />
-                @vibester_nation
-              </a>
+              <UiverseButton
+                text="+91 88844 87221"
+                icon={<Phone size={24} />}
+                href="tel:+918884487221"
+                variant="primary"
+              />
+              <UiverseButton
+                text="@vibester_nation"
+                icon={<Instagram size={24} />}
+                href="https://instagram.com/vibester_nation"
+                variant="secondary"
+              />
             </div>
           </div>
         </footer>
