@@ -1,218 +1,91 @@
 "use client";
 
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
 
 interface AnimatedButtonProps {
-    text: string;
-    icon?: React.ReactNode;
+  text: string;
+  icon?: React.ReactNode;
 }
 
 const AnimatedButton = ({ text, icon }: AnimatedButtonProps) => {
-    return (
-        <StyledWrapper>
-            <div className="button-scale-wrapper">
-                <svg style={{ position: 'absolute', width: 0, height: 0 }}>
-                    <filter width="300%" x="-100%" height="300%" y="-100%" id="unopaq">
-                        <feColorMatrix values="1 0 0 0 0 
-            0 1 0 0 0 
-            0 0 1 0 0 
-            0 0 0 9 0" />
-                    </filter>
-                    <filter width="300%" x="-100%" height="300%" y="-100%" id="unopaq2">
-                        <feColorMatrix values="1 0 0 0 0 
-            0 1 0 0 0 
-            0 0 1 0 0 
-            0 0 0 3 0" />
-                    </filter>
-                    <filter width="300%" x="-100%" height="300%" y="-100%" id="unopaq3">
-                        <feColorMatrix values="1 0 0 0.2 0 
-            0 1 0 0.2 0 
-            0 0 1 0.2 0 
-            0 0 0 2 0" />
-                    </filter>
-                </svg>
-                <button className="real-button" />
-                <div className="backdrop" />
-                <div className="button-container">
-                    <div className="spin spin-blur" />
-                    <div className="spin spin-intense" />
-                    <div className="backdrop" />
-                    <div className="button-border">
-                        <div className="spin spin-inside" />
-                        <div className="button">
-                            {icon && <div className="icon-container">{icon}</div>}
-                            {text}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </StyledWrapper>
-    );
-}
+  return (
+    <button
+      type="button"
+      className="
+        group
+        relative
+        flex
+        justify-center
+        items-center
+        gap-3
+        mx-auto
+        px-6
+        py-3
+        overflow-hidden
+        rounded-full
+        border-2
+        border-gray-500
+        bg-transparent
+        backdrop-blur-md
+        shadow-xl
+        text-sm
+        md:text-lg
+        lg:font-semibold
+        isolation-auto
 
-const StyledWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+        /* LEFT ➜ RIGHT hover background */
+        before:absolute
+        before:inset-0
+        before:-z-10
+        before:-translate-x-full
+        before:bg-black
+        before:transition-transform
+        before:duration-500
+        hover:before:translate-x-0
+      "
+    >
+      {/* Optional Icon */}
+      {icon && (
+        <span className="z-10 flex items-center justify-center text-gray-300 transition-colors duration-300 group-hover:text-white">
+          {icon}
+        </span>
+      )}
 
-  .button-scale-wrapper {
-    position: relative;
-    width: 240px; 
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+      {/* Button Text */}
+      <span className="z-10 font-heading uppercase tracking-widest text-gray-300 transition-colors duration-300 group-hover:text-white">
+        {text}
+      </span>
 
-  .button-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .button-border {
-    padding: 3px;
-    inset: 0;
-    background: #0005;
-    border-radius: 999px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .button {
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 999px;
-    width: 100%;
-    height: 100%;
-    background: #111215;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    overflow: hidden;
-    font-family: var(--font-heading);
-    font-size: 13px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    padding: 8px;
-    text-align: center;
-    line-height: 1.2;
-    z-index: 5;
-  }
-
-  .icon-container {
-    color: #00f2ff;
-    margin-bottom: 2px;
-  }
-
-  .real-button {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    outline: none;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    opacity: 0;
-  }
-
-  .backdrop {
-    position: absolute;
-    inset: -9900%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      #0000 0,
-      #0000 20%,
-      #111111aa 50%
-    );
-    background-size: 3px 3px;
-    z-index: -1;
-  }
-
-  .spin {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    opacity: 1;
-    overflow: hidden;
-    transition: 0.3s;
-  }
-
-  .real-button:active ~ div .spin {
-    opacity: 1;
-  }
-
-  .spin-blur {
-    filter: blur(2em) url(#unopaq);
-  }
-
-  .spin-intense {
-    inset: -0.125em;
-    filter: blur(0.25em) url(#unopaq2);
-    border-radius: 999px;
-  }
-
-  .spin-inside {
-    inset: -2px;
-    border-radius: inherit;
-    filter: blur(2px) url(#unopaq3);
-    z-index: 0;
-  }
-
-  .spin::before {
-    content: "";
-    position: absolute;
-    inset: -150%;
-    animation:
-      speen 4s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite,
-      woah 4s infinite;
-    animation-play-state: paused;
-  }
-
-  .real-button:hover ~ div .spin::before {
-    animation-play-state: running;
-  }
-
-  .spin-blur::before {
-    background: linear-gradient(90deg, #f50 30%, #0000 50%, #05f 70%);
-  }
-
-  .spin-intense::before {
-    background: linear-gradient(90deg, #f95 20%, #0000 45% 55%, #59f 80%);
-  }
-
-  .spin-inside::before {
-    background: linear-gradient(90deg, #fc9 30%, #0000 45% 55%, #9cf 70%);
-  }
-
-  @keyframes speen {
-    0% {
-      rotate: 10deg;
-    }
-    50% {
-      rotate: 190deg;
-    }
-    to {
-      rotate: 370deg;
-    }
-  }
-
-  @keyframes woah {
-    0%, to {
-      scale: 1;
-    }
-    50% {
-      scale: 0.75;
-    }
-  }
-`;
+      {/* Arrow Icon */}
+      <svg
+        className="
+          z-10
+          ml-2
+          w-8
+          h-8
+          rotate-45
+          rounded-full
+          border
+          border-gray-500
+          p-2
+          text-gray-300
+          transition-all
+          duration-300
+          group-hover:rotate-90
+          group-hover:bg-white
+          group-hover:text-black
+          group-hover:border-none
+        "
+        viewBox="0 0 16 19"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+          className="fill-current"
+        />
+      </svg>
+    </button>
+  );
+};
 
 export default AnimatedButton;
