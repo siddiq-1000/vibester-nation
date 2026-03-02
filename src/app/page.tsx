@@ -134,7 +134,13 @@ function ServicesSection() {
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
           {services.map((svc, i) => (
-            <Link href={svc.href} key={i} className="group flex-shrink-0">
+            <Link
+              href={svc.href}
+              key={i}
+              className="group flex-shrink-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="transition-transform duration-300 group-hover:animate-hover-x">
                 <AnimatedButton text={svc.title} icon={<svc.icon size={24} />} />
               </div>
