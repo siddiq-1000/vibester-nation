@@ -63,13 +63,13 @@ function InnerHome() {
         <EventPicsSection />
 
         {/* FINAL CTA DASHBOARD */}
-        <footer className="relative z-20 flex flex-col items-center justify-center py-32">
+        <footer className="relative z-20 flex flex-col items-center justify-center py-20 md:py-32">
           <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4">
-            <h2 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-12 text-white mix-blend-difference text-center">
+            <h2 className="text-4xl sm:text-5xl md:text-8xl font-heading font-extrabold uppercase mb-8 md:mb-12 text-white mix-blend-difference text-center">
               Book Vibester Nation
             </h2>
 
-            <div className="flex flex-col md:flex-row gap-6 mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-16">
               <UiverseButton
                 text="+91 88844 87221"
                 icon={<Phone size={24} />}
@@ -121,18 +121,17 @@ function ServicesSection() {
     { title: "Corporate", icon: CorporateIcon, href: "/corporate" },
     { title: "College & School", icon: CollegeIcon, href: "/college-schools" },
     { title: "Club & Night Life", icon: ClubIcon, href: "/club-nightlife" },
-    { title: "Live DJ Performance", icon: LiveDJIcon, href: "/live-dj" },
   ];
 
   return (
-    <section className="relative z-20 py-24 md:py-32 px-4 overflow-hidden bg-transparent">
+    <section className="relative z-20 py-16 md:py-32 px-4 overflow-hidden bg-transparent">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
-        <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-16 flex flex-wrap justify-center items-center gap-3 drop-shadow-md">
-          <span className="bg-white text-black px-6 pt-2 pb-1 rounded-full">Signature</span>
+        <h2 className="text-3xl sm:text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-10 md:mb-16 flex flex-wrap justify-center items-center gap-2 md:gap-3 drop-shadow-md text-center">
+          <span className="bg-white text-black px-4 md:px-6 pt-2 pb-1 rounded-full">Signature</span>
           <span className="text-white">Experiences</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-6 max-w-4xl">
           {services.map((svc, i) => (
             <Link
               href={svc.href}
@@ -142,7 +141,7 @@ function ServicesSection() {
               rel="noopener noreferrer"
             >
               <div className="transition-transform duration-300 group-hover:animate-hover-x">
-                <AnimatedButton text={svc.title} icon={<svc.icon size={24} />} />
+                <AnimatedButton text={svc.title} icon={<svc.icon size={20} />} />
               </div>
             </Link>
           ))}
@@ -166,13 +165,13 @@ function EventPicsSection() {
   const duplicatedPics = [...eventPics, ...eventPics];
 
   return (
-    <section className="relative z-20 py-24 md:py-32 overflow-hidden flex flex-col items-center">
-      <div className="flex flex-col items-center mb-16 px-4">
-        <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-4 flex flex-wrap justify-center items-center gap-3 drop-shadow-md">
-          <span className="bg-white text-black px-6 pt-2 pb-1 rounded-full">Event</span>
+    <section className="relative z-20 py-16 md:py-32 overflow-hidden flex flex-col items-center">
+      <div className="flex flex-col items-center mb-10 md:mb-16 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-4 flex flex-wrap justify-center items-center gap-2 md:gap-3 drop-shadow-md text-center">
+          <span className="bg-white text-black px-4 md:px-6 pt-2 pb-1 rounded-full">Event</span>
           <span className="text-white">Pics</span>
         </h2>
-        <p className="text-gray-400 font-sans tracking-widest text-sm uppercase text-center max-w-xl flex flex-wrap justify-center items-center gap-x-2 gap-y-1 mt-2">
+        <p className="text-gray-400 font-sans tracking-widest text-xs sm:text-sm uppercase text-center max-w-xl flex flex-wrap justify-center items-center gap-x-2 gap-y-2 mt-2">
           <span>Captured moments of</span>
           <span className="bg-white text-black px-3 py-1 rounded-full font-bold">pure energy</span>
           <span>and connection. The vibe lives on.</span>
@@ -180,13 +179,13 @@ function EventPicsSection() {
       </div>
 
       {/* Marquee Container */}
-      <div className="w-full relative py-8 group/marquee overflow-hidden">
+      <div className="w-full relative py-4 group/marquee overflow-hidden">
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused] ease-linear">
           {duplicatedPics.map((pic, i) => (
             <CometCard key={i} className="shrink-0 mx-2 md:mx-4">
               <button
                 type="button"
-                className="my-5 flex w-[300px] md:w-[400px] cursor-pointer flex-col items-stretch rounded-[16px] border border-white/5 bg-[#1F2121]/80 backdrop-blur-md p-2 saturate-0 hover:saturate-100 hover:border-white/20 transition-all duration-300 md:my-8 md:p-4 group/btn"
+                className="my-2 md:my-5 flex w-[260px] sm:w-[300px] md:w-[400px] cursor-pointer flex-col items-stretch rounded-[16px] border border-white/5 bg-[#1F2121]/80 backdrop-blur-md p-2 saturate-0 hover:saturate-100 hover:border-white/20 transition-all duration-300 md:p-4 group/btn"
                 aria-label={`View moment ${i}`}
                 style={{
                   transformStyle: "preserve-3d",
@@ -203,7 +202,7 @@ function EventPicsSection() {
                         alt={pic.alt}
                         src={pic.img}
                         fill
-                        sizes="(max-width: 768px) 300px, 400px"
+                        sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, 400px"
                         style={{
                           boxShadow: "rgba(0, 0, 0, 0.5) 0px 10px 20px 0px",
                           opacity: 1,
@@ -219,8 +218,8 @@ function EventPicsSection() {
                   </div>
                 </div>
                 <div className="mt-4 flex flex-shrink-0 items-center justify-between p-2 md:p-4 text-white" style={{ transformStyle: "preserve-3d", transform: "translateZ(30px)" }}>
-                  <div className="text-xs font-sans tracking-widest uppercase font-bold drop-shadow-md">Vibester Nation</div>
-                  <div className="text-xs font-sans tracking-widest text-[#00f2ff] opacity-80 uppercase drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">#MOMENTS</div>
+                  <div className="text-[10px] sm:text-xs font-sans tracking-widest uppercase font-bold drop-shadow-md">Vibester Nation</div>
+                  <div className="text-[10px] sm:text-xs font-sans tracking-widest text-[#00f2ff] opacity-80 uppercase drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">#MOMENTS</div>
                 </div>
               </button>
             </CometCard>
@@ -230,3 +229,4 @@ function EventPicsSection() {
     </section>
   );
 }
+
