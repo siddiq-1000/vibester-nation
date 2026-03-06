@@ -47,33 +47,34 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                     >
                         <Image src="/logo.png" alt="Vibester Nation Logo" fill className="object-contain transition-transform duration-700 ease-out group-hover:scale-110" priority />
 
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-[2px]">
-                            <div className="flex flex-col items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <div className="relative h-12 w-12 sm:h-16 sm:w-16 drop-shadow-lg transition-transform hover:scale-105">
-                                    <Image src="/play.png" alt="Play Button" fill className="object-contain" />
-                                </div>
-                                <span className="text-white text-lg sm:text-2xl font-[family-name:var(--font-anton)] uppercase tracking-widest drop-shadow-lg">
-                                    Click to Play
-                                </span>
-                            </div>
-                        </div>
                     </button>
 
-                    {/* Scroll Down Animation */}
+                    {/* Click to Play and Scroll Down Container */}
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1, duration: 1 }}
-                        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 pointer-events-none"
+                        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 sm:gap-6 pointer-events-none"
                     >
-                        <span className="text-white/60 text-xs sm:text-sm font-sans tracking-[0.3em] uppercase">Scroll Down</span>
-                        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/40 rounded-full flex justify-center p-1">
-                            <motion.div
-                                animate={{ y: [0, 12, 0], opacity: [1, 0.5, 1] }}
-                                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                                className="w-1 h-2 sm:w-1.5 sm:h-2.5 bg-white/80 rounded-full"
-                            />
+                        {/* Blinking Click to Play */}
+                        <motion.span
+                            animate={{ opacity: [1, 0.2, 1] }}
+                            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                            className="text-white text-base sm:text-lg font-[family-name:var(--font-anton)] uppercase tracking-widest drop-shadow-lg"
+                        >
+                            Click to Play
+                        </motion.span>
+
+                        {/* Scroll Down Animation */}
+                        <div className="flex flex-col items-center gap-3">
+                            <span className="text-white/60 text-xs sm:text-sm font-sans tracking-[0.3em] uppercase">Scroll Down</span>
+                            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/40 rounded-full flex justify-center p-1">
+                                <motion.div
+                                    animate={{ y: [0, 12, 0], opacity: [1, 0.5, 1] }}
+                                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                                    className="w-1 h-2 sm:w-1.5 sm:h-2.5 bg-white/80 rounded-full"
+                                />
+                            </div>
                         </div>
                     </motion.div>
                 </motion.div>
