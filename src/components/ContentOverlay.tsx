@@ -50,10 +50,9 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                         {/* Hover Overlay */}
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-[2px]">
                             <div className="flex flex-col items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 sm:h-16 sm:w-16 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
+                                <div className="relative h-12 w-12 sm:h-16 sm:w-16 drop-shadow-lg transition-transform hover:scale-105">
+                                    <Image src="/play.png" alt="Play Button" fill className="object-contain" />
+                                </div>
                                 <span className="text-white text-lg sm:text-2xl font-[family-name:var(--font-anton)] uppercase tracking-widest drop-shadow-lg">
                                     Click to Play
                                 </span>
