@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function WeddingPage() {
+export default function CelebrationWeddingPage() {
     return (
         <main className="min-h-screen bg-[#020202] flex flex-col items-center justify-center p-4 relative selection:bg-white/20">
             <div className="absolute top-8 left-8">
@@ -13,10 +13,10 @@ export default function WeddingPage() {
 
             <div className="max-w-4xl w-full text-center mt-16 md:mt-0">
                 <h1 className="text-5xl md:text-8xl font-heading font-extrabold uppercase mb-8 text-white drop-shadow-md">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#d100ff]">Weddings</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#d100ff]">Celebration & Weddings</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-300 font-sans tracking-wide leading-relaxed mb-12 max-w-2xl mx-auto">
-                    The perfect soundtrack for your perfect day. From elegant ceremonies to high-energy receptions, Vibester Nation curates the ideal musical journey for you and your guests.
+                    Elevate your special moments with Vibester Nation. From birthday bashes and elegant ceremonies to high-energy wedding receptions, we bring the energy and the perfect soundtrack to make your celebration unforgettable.
                 </p>
 
                 <a href="tel:+918884487221" className="inline-flex px-8 py-4 bg-gray-800 text-white font-bold text-lg tracking-widest uppercase hover:bg-gray-700 transition-colors duration-300 items-center justify-center rounded-full shadow-lg border border-gray-600">

@@ -10,7 +10,7 @@ import UiverseButton from "@/components/ui/UiverseButton";
 import { Instagram, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Globe3D, GlobeMarker } from "@/components/ui/3d-globe";
+import AboutMeButton from "@/components/ui/AboutMeButton";
 
 export default function Home() {
   // Prevent browser extensions (e.g. Avast bis_skin_checked) from causing hydration errors
@@ -63,7 +63,7 @@ function InnerHome() {
         <ServicesSection />
         <EventPicsSection />
 
-        <Globe3DDemo />
+
 
         {/* FINAL CTA DASHBOARD */}
         <footer className="relative z-20 flex flex-col items-center justify-center py-20 md:py-32">
@@ -88,6 +88,11 @@ function InnerHome() {
             </div>
           </div>
         </footer>
+
+        {/* ABOUT ME SECTION */}
+        <div className="relative z-20 flex justify-center pb-20">
+          <AboutMeButton />
+        </div>
       </div>
     </main>
   );
@@ -119,8 +124,7 @@ function ServicesSection() {
   );
 
   const services = [
-    { title: "Celebration", icon: CelebrationIcon, href: "/celebration" },
-    { title: "Weddings", icon: WeddingIcon, href: "/wedding" },
+    { title: "Celebration & Weddings", icon: CelebrationIcon, href: "/celebration-wedding" },
     { title: "Corporate", icon: CorporateIcon, href: "/corporate" },
     { title: "College & School", icon: CollegeIcon, href: "/college-schools" },
     { title: "Club & Night Life", icon: ClubIcon, href: "/club-nightlife" },
@@ -233,50 +237,5 @@ function EventPicsSection() {
   );
 }
 
-const sampleMarkers: GlobeMarker[] = [
-  { lat: 40.7128, lng: -74.006, src: "https://assets.aceternity.com/avatars/1.webp", label: "New York" },
-  { lat: 51.5074, lng: -0.1278, src: "https://assets.aceternity.com/avatars/2.webp", label: "London" },
-  { lat: 35.6762, lng: 139.6503, src: "https://assets.aceternity.com/avatars/3.webp", label: "Tokyo" },
-  { lat: -33.8688, lng: 151.2093, src: "https://assets.aceternity.com/avatars/4.webp", label: "Sydney" },
-  { lat: 48.8566, lng: 2.3522, src: "https://assets.aceternity.com/avatars/5.webp", label: "Paris" },
-  { lat: 28.6139, lng: 77.209, src: "https://assets.aceternity.com/avatars/6.webp", label: "New Delhi" },
-  { lat: 55.7558, lng: 37.6173, src: "https://assets.aceternity.com/avatars/7.webp", label: "Moscow" },
-  { lat: -22.9068, lng: -43.1729, src: "https://assets.aceternity.com/avatars/8.webp", label: "Rio de Janeiro" },
-  { lat: 31.2304, lng: 121.4737, src: "https://assets.aceternity.com/avatars/9.webp", label: "Shanghai" },
-  { lat: 25.2048, lng: 55.2708, src: "https://assets.aceternity.com/avatars/10.webp", label: "Dubai" },
-  { lat: -34.6037, lng: -58.3816, src: "https://assets.aceternity.com/avatars/11.webp", label: "Buenos Aires" },
-  { lat: 1.3521, lng: 103.8198, src: "https://assets.aceternity.com/avatars/12.webp", label: "Singapore" },
-  { lat: 37.5665, lng: 126.978, src: "https://assets.aceternity.com/avatars/13.webp", label: "Seoul" },
-  { lat: 12.9716, lng: 77.5946, src: "https://assets.aceternity.com/avatars/14.webp", label: "Bangalore" },
-];
 
-function Globe3DDemo() {
-  return (
-    <section className="relative z-20 py-16 md:py-32 w-full flex flex-col items-center overflow-hidden">
-      <div className="flex flex-col items-center mb-4 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight flex flex-wrap justify-center items-center gap-2 md:gap-3 drop-shadow-md text-center">
-          <span className="bg-white text-black px-4 md:px-6 pt-2 pb-1 rounded-full">Global</span>
-          <span className="text-white">Reach</span>
-        </h2>
-      </div>
-      <Globe3D
-        markers={sampleMarkers}
-        config={{
-          atmosphereColor: "#ffffff",
-          atmosphereIntensity: 20,
-          bumpScale: 5,
-          autoRotateSpeed: 0.3,
-        }}
-        onMarkerClick={(marker) => {
-          console.log("Clicked marker:", marker.label);
-        }}
-        onMarkerHover={(marker) => {
-          if (marker) {
-            console.log("Hovering:", marker.label);
-          }
-        }}
-      />
-    </section>
-  );
-}
 
