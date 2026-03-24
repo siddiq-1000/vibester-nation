@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Instagram, User, ArrowRight, ArrowLeft, X } from 'lucide-react';
+import { Instagram, User, ArrowRight, ArrowLeft, X, Phone, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -103,10 +103,15 @@ export default function AboutPage() {
             </button>
             <div className="h-4 w-px bg-white/20" />
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-white">
-                <User size={14} />
+              {/* Call Icon */}
+              <a href="tel:+918884487221" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-400">
+                <Phone size={14} />
               </a>
-              <a href="https://instagram.com/vibester_nation" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-white">
+              {/* WhatsApp Icon */}
+              <a href="https://wa.me/918884487221" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-500">
+                <MessageCircle size={14} />
+              </a>
+              <a href="https://instagram.com/vibester_nation" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-500">
                 <Instagram size={14} />
               </a>
             </div>
