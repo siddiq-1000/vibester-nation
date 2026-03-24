@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -17,6 +18,19 @@
   --color-accent-pink: var(--accent-pink);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-syne);
+  --font-serif: "Playfair Display", serif;
+  --animate-beep: beep 3s ease-in-out infinite;
+
+  @keyframes beep {
+    0%, 100% { 
+      opacity: 0.4; 
+      filter: drop-shadow(0 0 0px white);
+    }
+    50% { 
+      opacity: 1; 
+      filter: drop-shadow(0 0 8px white);
+    }
+  }
 }
 
 body {

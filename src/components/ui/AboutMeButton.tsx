@@ -2,11 +2,14 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/navigation';
 
 const AboutMeButton: React.FC = () => {
+  const router = useRouter();
+
   return (
     <StyledWrapper>
-      <button>About Me</button>
+      <button onClick={() => router.push('/about')}>About Me</button>
     </StyledWrapper>
   );
 };

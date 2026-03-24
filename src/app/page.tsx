@@ -65,34 +65,8 @@ function InnerHome() {
 
 
 
-        {/* FINAL CTA DASHBOARD */}
-        <footer className="relative z-20 flex flex-col items-center justify-center py-20 md:py-32">
-          <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4">
-            <h2 className="text-4xl sm:text-5xl md:text-8xl font-heading font-extrabold uppercase mb-8 md:mb-12 text-white mix-blend-difference text-center">
-              Book Experiences
-            </h2>
-
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-16">
-              <UiverseButton
-                text="+91 88844 87221"
-                icon={<Phone size={24} />}
-                href="tel:+918884487221"
-                variant="primary"
-              />
-              <UiverseButton
-                text="@vibester_nation"
-                icon={<Instagram size={24} />}
-                href="https://instagram.com/vibester_nation"
-                variant="secondary"
-              />
-            </div>
-          </div>
-        </footer>
-
-        {/* ABOUT ME SECTION */}
-        <div className="relative z-20 flex justify-center pb-20">
-          <AboutMeButton />
-        </div>
+        {/* ABOUT AND EXPERIENCE SECTION */}
+        <AboutAndExperienceSection />
       </div>
     </main>
   );
@@ -237,5 +211,26 @@ function EventPicsSection() {
   );
 }
 
+function AboutAndExperienceSection() {
+  return (
+    <section className="relative z-20 py-24 md:py-40 overflow-hidden flex flex-col items-center justify-center min-h-[50vh]">
+      <div className="flex flex-col items-center mb-10 md:mb-16 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-7xl font-heading font-bold uppercase tracking-tight mb-4 flex flex-wrap justify-center items-center gap-2 md:gap-3 drop-shadow-md text-center">
+          <span className="text-white">Click For</span>
+          <span className="bg-white text-black px-4 md:px-6 pt-2 pb-1 rounded-full">Experience</span>
+        </h2>
+        <p className="text-gray-400 font-sans tracking-widest text-xs sm:text-sm uppercase text-center max-w-xl flex flex-wrap justify-center items-center gap-x-2 gap-y-2 mt-2">
+          <span>Discover the</span>
+          <span className="bg-white text-black px-3 py-1 rounded-full font-bold">sonic architect</span>
+          <span>behind the journey.</span>
+        </p>
+      </div>
+
+      <div className="flex w-full items-center justify-center mt-4 group">
+        <AboutMeButton />
+      </div>
+    </section>
+  );
+}
 
 
