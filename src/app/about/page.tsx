@@ -63,7 +63,7 @@ export default function AboutPage() {
         </div>
 
         {/* Right Side Description */}
-        <div className="absolute top-1/2 md:top-1/2 -translate-y-1/25 left-1/2 -translate-x-1/2 md:transform-none md:left-auto md:right-12 z-20 flex flex-col items-center md:items-end gap-3 md:gap-5 px-6 md:px-0 w-[90%] md:w-auto max-w-[360px] md:max-w-[280px]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-auto md:right-12 md:translate-x-0 z-20 flex flex-col items-center md:items-end gap-3 md:gap-5 px-6 md:px-0 w-[90%] md:w-auto max-w-[360px] md:max-w-[280px]">
           <div className="h-px w-16 bg-emerald-500/60 mb-1 md:mb-2" />
           <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-emerald-400/80 text-center md:text-right">Sonic Architect</h3>
           <p className="text-[10px] leading-relaxed tracking-widest text-center md:text-right opacity-70 font-light">
