@@ -11,9 +11,9 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black overflow-hidden flex flex-col">
       {/* Header Navigation */}
-      <header className="fixed top-0 w-full z-50 px-12 py-8 flex items-center justify-between pointer-events-none">
+      <header className="fixed top-0 w-full z-50 px-4 md:px-12 py-4 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 pointer-events-none">
         {/* Top Left: Artist Name & Go Back */}
-        <div className="flex-1 flex items-center gap-6 pointer-events-auto">
+        <div className="flex-1 flex items-center justify-center md:justify-start gap-4 md:gap-6 pointer-events-auto">
           <Link 
             href="/" 
             className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-mono text-white/50 hover:text-white transition-colors"
@@ -63,64 +63,68 @@ export default function AboutPage() {
         </div>
 
         {/* Right Side Description */}
-        <div className="absolute right-12 z-20 flex flex-col items-end gap-5 max-w-[280px]">
-          <div className="h-px w-16 bg-emerald-500/60 mb-2" />
-          <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-emerald-400/80">Sonic Architect</h3>
-          <p className="text-[10px] leading-relaxed tracking-widest text-right opacity-70 font-light">
+        <div className="absolute top-1/2 md:top-1/2 -translate-y-1/25 left-1/2 -translate-x-1/2 md:transform-none md:left-auto md:right-12 z-20 flex flex-col items-center md:items-end gap-3 md:gap-5 px-6 md:px-0 w-[90%] md:w-auto max-w-[360px] md:max-w-[280px]">
+          <div className="h-px w-16 bg-emerald-500/60 mb-1 md:mb-2" />
+          <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-emerald-400/80 text-center md:text-right">Sonic Architect</h3>
+          <p className="text-[10px] leading-relaxed tracking-widest text-center md:text-right opacity-70 font-light">
             Crafting sonic landscapes from the heart of the Garden City. A fusion of tech-forward beats and organic textures inspired by the streets of Bengaluru.
           </p>
-          <p className="text-[10px] leading-relaxed tracking-widest text-right opacity-70 font-light mt-1">
+          <p className="text-[10px] leading-relaxed tracking-widest text-center md:text-right opacity-70 font-light mt-1">
             Redefining the underground frequency, blending heavy basslines with ethereal melodies to create an unforgettable, immersive club experience.
           </p>
-          <div className="flex gap-4 mt-2">
-            <span className="text-[9px] border border-white/20 px-3 py-1 rounded-full text-white/60">TECHNO</span>
-            <span className="text-[9px] border border-white/20 px-3 py-1 rounded-full text-white/60">HOUSE</span>
+          <div className="flex gap-3 md:gap-4 mt-2">
+            <span className="text-[9px] border border-white/20 px-3 py-1 rounded-full text-white/60 bg-black/20 backdrop-blur-sm md:bg-transparent">TECHNO</span>
+            <span className="text-[9px] border border-white/20 px-3 py-1 rounded-full text-white/60 bg-black/20 backdrop-blur-sm md:bg-transparent">HOUSE</span>
           </div>
-          <span className="text-[7px] tracking-[0.4em] uppercase text-emerald-400/30 mt-8 [writing-mode:vertical-rl] rotate-180 font-medium">
+          <span className="hidden md:block text-[7px] tracking-[0.4em] uppercase text-emerald-400/30 mt-8 [writing-mode:vertical-rl] rotate-180 font-medium">
             Bengaluru — The Vibe City
           </span>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="fixed bottom-0 w-full z-50 px-12 py-10 flex items-center justify-between pointer-events-none">
+      <footer className="fixed bottom-0 w-full z-50 px-4 md:px-12 py-6 md:py-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 pointer-events-none">
         {/* Logo Left */}
-        <div className="flex-1">
+        <div className="flex-1 hidden md:block">
           <span className="text-[8px] tracking-[0.5em] uppercase opacity-40 font-mono">
             Bengaluru
           </span>
         </div>
 
         {/* Social Icons & Action Center (One Line) */}
-        <div className="flex-1 flex justify-center items-center gap-8 animate-beep pointer-events-auto">
-          <ArrowRight size={12} className="text-white" />
-          <div className="flex items-center gap-8">
+        <div className="flex-1 flex justify-center items-center gap-4 md:gap-8 animate-beep pointer-events-auto">
+          <ArrowRight size={12} className="text-white hidden sm:block" />
+          <div className="flex flex-col sm:flex-row items-center gap-2 md:gap-8 bg-black/50 md:bg-transparent backdrop-blur-md md:backdrop-blur-none px-6 py-3 md:p-0 rounded-2xl md:rounded-none border border-white/10 md:border-none shadow-xl">
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="text-[11px] tracking-[0.5em] uppercase hover:text-emerald-400 transition-colors duration-500 font-bold text-white whitespace-nowrap cursor-pointer"
+              className="text-[10px] md:text-[11px] tracking-[0.4em] md:tracking-[0.5em] uppercase hover:text-emerald-400 transition-colors duration-500 font-bold text-white whitespace-nowrap cursor-pointer"
+              aria-label="Book for Experience"
             >
               Book for Experience 
             </button>
-            <div className="h-4 w-px bg-white/20" />
-            <div className="flex items-center gap-6">
+            <div className="hidden sm:block h-4 w-px bg-white/20" />
+            <div className="h-px w-20 sm:hidden bg-white/20" />
+            <div className="flex items-center gap-6 mt-1 sm:mt-0">
               {/* Call Icon */}
-              <a href="tel:+918884487221" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-400">
-                <Phone size={14} />
+              <a href="tel:+918884487221" aria-label="Call Us" className="p-1 hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-400 group">
+                <Phone size={14} className="group-hover:scale-110 transition-transform" />
               </a>
               {/* WhatsApp Icon */}
-              <a href="https://wa.me/918884487221" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-500">
-                <MessageCircle size={14} />
+              <a href="https://wa.me/918884487221" aria-label="WhatsApp Us" target="_blank" rel="noopener noreferrer" className="p-1 hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-500 group">
+                <MessageCircle size={14} className="group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://instagram.com/vibester_nation" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-500">
-                <Instagram size={14} />
+              <a href="https://instagram.com/vibester_nation" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer" className="p-1 hover:opacity-100 cursor-pointer transition-opacity text-white hover:text-green-500 group">
+                <Instagram size={14} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
-          <ArrowLeft size={12} className="text-white" />
+          <ArrowLeft size={12} className="text-white hidden sm:block" />
         </div>
 
         {/* Logo Right */}
-        <img src="/logo.png" className="w-16 absolute top-2 right-20 pointer-events-none" />
+        <div className="flex-1 flex justify-end">
+          <img src="/logo.png" className="w-12 md:w-16 relative md:top-2 top-110 right-4 md:right-5 pointer-events-none opacity-50 md:opacity-100" />
+        </div>
       </footer>
 
       {/* Registration Modal (Cloud/Blur Animation) */}
@@ -141,7 +145,7 @@ export default function AboutPage() {
               className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549298240-0d8e60513026?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-screen pointer-events-none" 
             />
             
-            <div className="relative z-10 p-10 max-w-[400px] w-full flex flex-col items-center border border-white/5 bg-[#050505]/95 shadow-[0_0_60px_-15px_rgba(16,185,129,0.3)] overflow-hidden">
+            <div className="relative z-10 p-6 md:p-10 mx-4 md:mx-0 max-w-[400px] w-full flex flex-col items-center border border-white/5 bg-[#050505]/95 shadow-[0_0_60px_-15px_rgba(16,185,129,0.3)] overflow-hidden rounded-2xl md:rounded-none">
               <button 
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors p-2"

@@ -85,7 +85,7 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                     className="absolute inset-0 flex flex-col justify-center px-6 sm:px-8 md:px-24"
                 >
                     <div className="max-w-2xl text-left">
-                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
+                        <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
                             Global Sound Fusion
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-gray-300 font-sans tracking-wide leading-relaxed">
@@ -97,16 +97,16 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                 {/* Beat C: THE REACH */}
                 <motion.div
                     style={{ opacity: opacityC, x: xC }}
-                    className="absolute inset-0 flex flex-col justify-center items-end px-6 sm:px-8 md:px-24 text-right"
+                    className="absolute inset-0 flex flex-col justify-center items-center md:items-end px-6 sm:px-8 md:px-24 text-center md:text-right"
                 >
                     <div className="max-w-2xl">
-                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
+                        <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
                             Uniting Cultures
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-gray-300 font-sans tracking-wide leading-relaxed mb-4">
                             Rhythm without borders. Fusing global sounds:
                         </p>
-                        <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3 mt-4">
+                        <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3 mt-4">
                             {["Afro House", "Techno", "EDM", "Bollywood", "South Indian", "Arabic", "Latin", "Commercial"].map((genre) => (
                                 <span key={genre} className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/5 border border-white/10 text-white rounded-full font-sans tracking-widest text-[10px] sm:text-xs uppercase whitespace-nowrap">
                                     {genre}
@@ -122,7 +122,7 @@ export default function ContentOverlay({ scrollYProgress }: { scrollYProgress?: 
                     className="absolute inset-0 flex flex-col justify-center px-6 sm:px-8 md:px-24"
                 >
                     <div className="max-w-2xl text-left">
-                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
+                        <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 font-[family-name:var(--font-anton)] text-white uppercase tracking-tight drop-shadow-md">
                             Igniting Crowds
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-gray-300 font-sans tracking-wide leading-relaxed">
