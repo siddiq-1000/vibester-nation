@@ -11,6 +11,8 @@ import { Instagram, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import AboutMeButton from "@/components/ui/AboutMeButton";
+import AboutMeFrontPage from "@/components/AboutMeFrontPage";
+import LogoHero from "@/components/LogoHero";
 
 export default function Home() {
   // Prevent browser extensions (e.g. Avast bis_skin_checked) from causing hydration errors
@@ -39,6 +41,12 @@ function InnerHome() {
   return (
     <main className="bg-[#020202] min-h-screen relative selection:bg-white/20">
 
+      {/* LOGO HERO - First thing */}
+      <LogoHero />
+
+      {/* ABOUT ME FRONT PAGE */}
+      <AboutMeFrontPage />
+
       {/* FIXED BACKGROUND SEQUENCE - stays permanently stuck in the viewport */}
       <div className="fixed top-0 left-0 w-full h-screen overflow-hidden pointer-events-none z-0">
         <ScrollCanvas onLoadProgress={() => { }} scrollYProgress={scrollYProgress} />
@@ -62,11 +70,6 @@ function InnerHome() {
       <div className="relative z-20 pt-8">
         <ServicesSection />
         <EventPicsSection />
-
-
-
-        {/* ABOUT AND EXPERIENCE SECTION */}
-        <AboutAndExperienceSection />
       </div>
     </main>
   );
